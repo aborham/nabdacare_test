@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160923130052) do
+ActiveRecord::Schema.define(version: 20160923155614) do
 
   create_table "permissions", force: true do |t|
     t.string   "name"
@@ -19,6 +19,14 @@ ActiveRecord::Schema.define(version: 20160923130052) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "permissions_users", force: true do |t|
+    t.integer "user_id"
+    t.integer "permission_id"
+  end
+
+  add_index "permissions_users", ["permission_id"], name: "index_permissions_users_on_permission_id"
+  add_index "permissions_users", ["user_id"], name: "index_permissions_users_on_user_id"
 
   create_table "users", force: true do |t|
     t.string   "name"

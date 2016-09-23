@@ -2,6 +2,44 @@ require 'spec_helper'
 
 describe Api::V1::PermissionsController do
 
+  describe "GET #index" do
+    before(:each) do
+      @permission_1 = create :permission
+      @permission_2 = create :permission
+      @permission_3 = create :permission
+    end
+    context "when no user present" do
+      before(:each) do
+        get :index
+      end
+      it "returns 3 records from the database" do
+        permissions_response = json_response
+        expect(permissions_response).to have(3).items
+      end
+
+      it { should respond_with 200 }
+
+    end
+
+    context "where is a user present" do
+      before(:each) do
+        @user = create :user
+        @user.permissions << @permission_1
+        @user.permissions << @permission_2
+        @user.permissions << @permission_3
+        get :index, :user_id => @user.id
+      end
+      it "returns 3 records from the database" do
+        permissions_response = json_response
+        expect(permissions_response).to have(3).items
+      end
+
+      it { should respond_with 200 }
+
+    end
+
+  end
+
   describe "POST #create" do
 
     context "when is successfully created" do

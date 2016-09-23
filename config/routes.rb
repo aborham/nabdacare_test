@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     scope module: :v1, constraints: ApiConstraints.new(version: 1, default: true) do
 
       resources :users, :only => [:create]
-      resources :permissions, :only => [:create]
+      resources :permissions, :only => [:create, :index]
     end
 
   end
