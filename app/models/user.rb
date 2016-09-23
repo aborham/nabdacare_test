@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   has_many :children, class_name: "User", foreign_key: :parent_id
   has_and_belongs_to_many :permissions
 
-  validates :name, :email ,presence: true
+  validates :name, :email, :parent_id ,presence: true
   validates :email, uniqueness: true
   validates_format_of :email,:with => /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/
 
