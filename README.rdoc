@@ -2,7 +2,7 @@
 
 {<img src="https://codeclimate.com/github/saladin2002eg/nabdacare_test/badges/gpa.svg" />}[https://codeclimate.com/github/saladin2002eg/nabdacare_test]
 
-{<img src="https://travis-ci.org/saladin2002eg/nabdacare_test.svg?branch=develop" alt="Build Status" />}[https://travis-ci.org/saladin2002eg/nabdacare_test]
+{<img src="https://travis-ci.org/saladin2002eg/nabdacare_test.svg?branch=master" alt="Build Status" />}[https://travis-ci.org/saladin2002eg/nabdacare_test]
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
